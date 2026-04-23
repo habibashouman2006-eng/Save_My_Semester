@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Save My Semester</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <h1>Save My Semester</h1>
+            <p>Academic Decision Support System</p>
+        </div>
+        <div class="actions">
+            <button id="refreshButton">Refresh Tasks</button>
+            <button id="overloadButton">Overload Check</button>
+            <button id="smallWinsButton">Small Wins</button>
+            <button id="burnoutButton">Stress Meter</button>
+            <button id="rescheduleButton">Reschedule Overdue</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="panel" id="summaryPanel">
+            <h2>Quick Status</h2>
+            <div class="cards" id="statusCards">
+                <div class="card"><strong>0</strong><span>Active tasks</span></div>
+                <div class="card"><strong>0</strong><span>Overdue tasks</span></div>
+                <div class="card"><strong>0</strong><span>Completed</span></div>
+            </div>
+        </section>
+
+        <section class="panel" id="taskPanel">
+            <h2>Assignments</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Subject</th>
+                        <th>Deadline</th>
+                        <th>Hours</th>
+                        <th>Difficulty</th>
+                        <th>Weight</th>
+                        <th>Progress</th>
+                        <th>Priority Score</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="taskTableBody"></tbody>
+            </table>
+        </section>
+
+        <section class="panel" id="formPanel">
+            <h2>Add New Assignment</h2>
+            <form id="taskForm">
+                <div class="field-row">
+                    <label>Name</label>
+                    <input id="nameInput" type="text" required />
+                </div>
+                <div class="field-row">
+                    <label>Subject</label>
+                    <input id="subjectInput" type="text" required />
+                </div>
+                <div class="field-row">
+                    <label>Deadline</label>
+                    <input id="deadlineInput" type="date" required />
+                </div>
+                <div class="field-row">
+                    <label>Hours</label>
+                    <input id="hoursInput" type="number" min="0.5" step="0.5" required />
+                </div>
+                <div class="field-row">
+                    <label>Difficulty</label>
+                    <select id="difficultyInput">
+                        <option value="1">1 - Easy</option>
+                        <option value="2">2 - Moderate</option>
+                        <option value="3">3 - Medium</option>
+                        <option value="4">4 - Hard</option>
+                        <option value="5">5 - Very Hard</option>
+                    </select>
+                </div>
+                <div class="field-row">
+                    <label>Grade Weight (%)</label>
+                    <input id="weightInput" type="number" min="0" max="100" step="1" required />
+                </div>
+                <div class="field-row">
+                    <label>Current Progress (%)</label>
+                    <input id="progressInput" type="number" min="0" max="100" step="1" required />
+                </div>
+                <button type="submit" class="primary">Add Assignment</button>
+            </form>
+        </section>
+
+        <section class="panel" id="messagePanel">
+            <h2>Messages</h2>
+            <div id="messageBox">0 active tasks loaded. Add an assignment to get started.</div>
+        </section>
+    </main>
+
+    <script src="/script.js"></script>
+</body>
+</html>
